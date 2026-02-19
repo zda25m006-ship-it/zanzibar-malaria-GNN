@@ -1,0 +1,43 @@
+# GNN Malaria Importation Prediction - Default Configuration
+
+data:
+  data_dir: "c:/malaria"
+  lookback: 3  # months of temporal history
+  train_months: ["2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10",
+                  "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04",
+                  "2023-05", "2023-06"]
+  val_months: ["2023-07", "2023-08", "2023-09"]
+  test_months: ["2023-10", "2023-11", "2023-12"]
+
+models:
+  gcn:
+    hidden_channels: 64
+    num_layers: 2
+    dropout: 0.3
+  gat:
+    hidden_channels: 64
+    num_heads: 4
+    dropout: 0.3
+  stgnn:
+    hidden_channels: 64
+    num_spatial_layers: 2
+    num_temporal_layers: 1
+    dropout: 0.3
+    num_attention_heads: 2
+  graph_transformer:
+    hidden_channels: 64
+    num_layers: 3
+    num_heads: 4
+    dropout: 0.2
+    use_adaptive_adj: true
+
+training:
+  epochs: 200
+  learning_rate: 0.005
+  weight_decay: 0.0001
+  patience: 15
+  loss: "combined"  # poisson, negative_binomial, mse, weighted, combined
+  grad_clip: 1.0
+
+output:
+  save_dir: "results"
