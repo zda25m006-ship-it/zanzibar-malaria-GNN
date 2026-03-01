@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data — large files, keep only the copies in repo
+*.xlsx
+# Uncomment below to also exclude CSVs (currently kept since they're the dataset)
+# *.csv
+
+# Trained model weights
+*.pt
+*.pth
+*.pkl
+*.joblib
+
+# Logs and temp outputs
+*.log
+logs/
+runs/
+wandb/
+
+# Local results (keep results/*.png committed)
+results/loocv_comparison.png
+
+# Environment
+.env
